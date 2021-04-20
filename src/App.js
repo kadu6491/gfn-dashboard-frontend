@@ -1,11 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+
+
+import Login from './pages/Login'
+import SignUp from './pages/SignUp'
 
 function App() {
   return (
-    <div className="App">
-      <h5>Good for nothing - nice weather today is</h5>
-    </div>
+      <Router>
+        <Switch>
+          <Route path="/" exact component={Login}/>
+          <Route path="/register" exact component={SignUp}/>
+        </Switch>
+      </Router>
   );
 }
 
