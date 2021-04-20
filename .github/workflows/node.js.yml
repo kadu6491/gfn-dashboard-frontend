@@ -26,6 +26,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
+    - name: Heroku Build Logs
+      uses: mheap/github-action-heroku-logs@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        HEROKU_AUTH_TOKEN: ${{ secrets.HEROKU_AUTH_TOKEN }}
     # - run: git rm yarn.lock
     # - name: Deploy to Heroku
     #   uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
