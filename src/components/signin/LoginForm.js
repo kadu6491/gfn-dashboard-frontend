@@ -45,10 +45,11 @@ const LoginForm = () => {
             "email": email,
             "password": password, 
         }).then(resp => {
-            if(resp.data === "success")
+            if(resp.data.msg === "success")
             {
                 localStorage.setItem("user", email)
-                // history.push("/dashboard")
+                localStorage.setItem("token", resp.data.token)
+                history.push("/dashboard")
                 console.log(resp.data)
             }
             else {
