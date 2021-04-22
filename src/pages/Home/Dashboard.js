@@ -5,13 +5,13 @@ import {useHistory} from 'react-router-dom'
 import api from '../../api'
 
 import DashboardList from '../../components/home/DashboardList'
+import Body from '../../navigation/Body'
 
 const Dashboard = () => {
-    let user = localStorage.getItem("user")
+    let token = localStorage.getItem("token")
     let history = useHistory()
 
-    console.log(user)
-    if (user == null)
+    if (token === null || token === undefined)
     {
         history.push("/")
     }
@@ -19,15 +19,20 @@ const Dashboard = () => {
     useEffect(() => {
         api.get('/info/', {
             headers: {
-                Authorization: `Bearer ${localStorage.getItem('token')}`
+                Authorization: `Bearer ${token}`
             }
         }).then(resp => {
-            console.log(resp.data)
+            console.log(resp.data.expiration)
         })
     }, [])
     return (
         <div>
-            <DashboardList name={"Peter"}/>
+            <Body 
+                main={<DashboardList name="Peter"/>}
+                num={0}
+                title="Dashboard"
+            />
+            {/* <DashboardList name={"Peter"}/> */}
         </div>
     )
 }

@@ -47,10 +47,8 @@ const LoginForm = () => {
         }).then(resp => {
             if(resp.data.msg === "success")
             {
-                localStorage.setItem("user", email)
                 localStorage.setItem("token", resp.data.token)
                 history.push("/dashboard")
-                console.log(resp.data)
             }
             else {
                 setError(true)
