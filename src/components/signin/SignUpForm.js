@@ -68,8 +68,10 @@ const SignUpForm = () => {
                     setError(false)
                     setIsExit(true)
                 }
-                else if(resp.data === "success"){
-                    history.push("/")
+                else if(resp.data.msg === "success"){
+                    localStorage.setItem("user", email)
+                    localStorage.setItem("token", resp.data.token)
+                    history.push("/new")
                 }
                 else {
                     setIsExit(false)
@@ -78,6 +80,7 @@ const SignUpForm = () => {
             })
         }
     }
+    
 
     return (
         <div className="loginMain">

@@ -12,6 +12,7 @@ import SignUp from './pages/SignUp'
 import Dashboard from './pages/Home/Dashboard';
 import Analysis from './pages/Home/Analysis';
 import Products from './pages/Home/Products';
+import { StoreInfo } from './store/new/StoreInfo';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Login}/>
           <Route path="/register" exact component={SignUp}/>
+          <Route path="/new/" exact component={StoreInfo}/>
           <Route path="/dashboard/" exact component={Dashboard} />
           <Route path="/analysis/" exact component={Analysis} />
           <Route path="/products/" exact component={Products} />

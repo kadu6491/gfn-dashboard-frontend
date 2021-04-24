@@ -172,6 +172,14 @@ const DrawerList = (props) => {
                         </ListItemIcon>
                         <ListItemText primary={"Help"} />
                     </ListItem>
+                    
+                    <br /> <r /> <br />
+                    <ListItem button className={classes.listNav} selected={selectedIndex === 8}>
+                        <ListItemIcon>
+                            <HelpRoundedIcon style={{color: "white"}} />
+                        </ListItemIcon>
+                        <ListItemText primary={"Stores"} />
+                    </ListItem>
 
                 </List>
             </div>
