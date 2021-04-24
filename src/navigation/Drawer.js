@@ -116,7 +116,13 @@ const DrawerList = (props) => {
                         <ListItemText primary={"Analysis"} />
                     </ListItem>
 
-                    <ListItem button className={classes.listNav} selected={selectedIndex === 2}>
+                    <ListItem 
+                        button 
+                        className={classes.listNav} 
+                        selected={selectedIndex === 2}
+                        component="a"
+                        href="/products"
+                    >
                         <ListItemIcon>
                             <LocalMallRoundedIcon style={{color: "white"}} />
                         </ListItemIcon>

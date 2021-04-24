@@ -36,12 +36,16 @@ const useStyles = makeStyles((theme) => ({
     },
     content: {
         flexGrow: 1,
-        // padding: theme.spacing(3),
+        padding: theme.spacing(3),
+        [theme.breakpoints.down('xs')]: {
+            padding: theme.spacing(1),
+            marginTop: "-5px",
+        },
     },
     navTool: {
-        position: "absolute",
-        height: "auto",
-        width: "100%",
+        // position: "absolute",
+        // height: "auto",
+        // width: "100%",
         // backgroundColor: '#0c2233',
         color: "white",
     },
@@ -53,7 +57,10 @@ const useStyles = makeStyles((theme) => ({
     },
     active: {
         backgroundColor: "red",
-    }
+    },
+    grow: {
+        flexGrow: 1,
+      },
 }));
 
 export default useStyles

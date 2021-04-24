@@ -1,8 +1,10 @@
 import React from 'react'
 
-import { Drawer, Hidden, AppBar, IconButton, Toolbar, Typography} from '@material-ui/core'
+import { Drawer, Hidden, AppBar, IconButton, Toolbar, Typography, Badge} from '@material-ui/core'
 
 import MenuIcon from '@material-ui/icons/Menu';
+import MailIcon from '@material-ui/icons/Mail';
+import NotificationsIcon from '@material-ui/icons/Notifications';
 
 import { useTheme} from '@material-ui/core/styles';
 import useStyles from './style'
@@ -38,6 +40,19 @@ const Nav = (props) => {
                         <Typography variant="h6" noWrap>
                             {props.title}
                         </Typography>
+                        <div className={classes.grow} />
+                        <Hidden smUp implementation="css">
+                            <div className={classes.sectionDesktop}>
+                                <IconButton aria-label="show 17 new notifications" color="inherit">
+                                    <NotificationsIcon />
+                                </IconButton>
+                                <IconButton aria-label="show 4 new mails" color="inherit">
+                                    <Badge badgeContent={props.badge} color="secondary">
+                                        <MailIcon />
+                                    </Badge>
+                                </IconButton>
+                            </div>
+                        </Hidden>
                     </Toolbar>
                 </AppBar>
             </Hidden>

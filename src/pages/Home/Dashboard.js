@@ -4,7 +4,7 @@ import {useHistory} from 'react-router-dom'
 
 import api from '../../api'
 
-import DashboardList from '../../components/home/DashboardList'
+import DashboardList from '../../components/dashboard/DashboardList'
 import Body from '../../navigation/Body'
 
 const Dashboard = () => {
