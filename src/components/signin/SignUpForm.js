@@ -69,9 +69,8 @@ const SignUpForm = () => {
                     setIsExit(true)
                 }
                 else if(resp.data.msg === "success"){
-                    localStorage.setItem("user", email)
                     localStorage.setItem("token", resp.data.token)
-                    history.push("/new")
+                    history.push("/")
                 }
                 else {
                     setIsExit(false)
