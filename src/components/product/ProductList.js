@@ -17,7 +17,7 @@ const ProductList = () => {
         <div>
             <Box mt={3}>
                 <Typography>
-                    Product
+                    Product - 
                 </Typography>
             </Box>
         </div>
