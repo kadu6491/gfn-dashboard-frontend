@@ -15,7 +15,7 @@ import {CalendarTodayOutlined} from '@material-ui/icons'
 const ProductList = () => {
     return (
         <div>
-            <Box bgcolor="red" mt={3}>
+            <Box mt={3}>
                 <Typography>
                     Product
                 </Typography>
