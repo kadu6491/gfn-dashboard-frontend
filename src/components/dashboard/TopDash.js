@@ -1,11 +1,10 @@
 import React from 'react'
 
 // Import Material UI libraries
-import {Typography, Grid, Card, CardContent, Box, Hidden, Button} from '@material-ui/core'
+import {Typography, Grid, Card, CardContent, Box} from '@material-ui/core'
 
 
 // Import Material Icons
-import {CreditCardRounded} from '@material-ui/icons'
 
 // Import others
 import useStyle from './style'

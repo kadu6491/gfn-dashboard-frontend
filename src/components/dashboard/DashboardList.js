@@ -1,11 +1,10 @@
 import React, {useEffect} from 'react'
 
 // Import Material UI libraries
-import {Typography, Grid, Button, Paper} from '@material-ui/core'
+import {Typography, Grid, Button} from '@material-ui/core'
 
 
 // Import Material Icons
-import {CalendarTodayOutlined} from '@material-ui/icons'
 
 
 // Import Graph components
@@ -15,7 +14,7 @@ import useStyle from './style'
 import api from '../../api'
 import TopDash from './TopDash'
 import MiddleDash from './MiddleDash'
-import BottomDash from './BottomDash'
+// import BottomDash from './BottomDash'
 
 
 const DashboardList = (props) => {

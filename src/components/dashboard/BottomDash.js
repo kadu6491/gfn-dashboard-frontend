@@ -1,17 +1,16 @@
 import React from 'react'
 
 // Import Material UI libraries
-import {Typography, Grid, Card, CardContent, Box, Hidden, Button} from '@material-ui/core'
+import {Grid, Card, Box} from '@material-ui/core'
 
 
 // Import Material Icons
-import {CreditCardRounded} from '@material-ui/icons'
 
 // Import others
-import useStyle from './style'
+// import useStyle from './style'
 
 const BottomDash = () => {
-    const classes = useStyle();
+    // const classes = useStyle();
     return (
         <Box mt={5}>
             <Grid container spacing={2} style={{backgroundColor: "red"}}>

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 
 import { Chart } from "react-google-charts";
 
@@ -10,10 +10,10 @@ const RevenueGraph = () => {
             <Chart
                 width={'100%'}
                 height={'300px'}
-                chartType="LineChart"
+                chartType="AreaChart"
                 loader={<div>Loading Chart</div>}
                 data={[
-                    ['Total', 'Month'],
+                    ['Total', 'Orders'],
                     ["Jan", 0],
                     ["Febuary", 10],
                     ["March", 23],
@@ -23,12 +23,9 @@ const RevenueGraph = () => {
                     ['Yuly', 11],
                 ]}
                 options={{
-                    hAxis: {
-                    title: 'Month',
-                    },
-                    vAxis: {
-                    title: 'Total Order',
-                    },
+                    hAxis: { title: 'Months', titleTextStyle: { color: '#333' } },
+                    legend: { position: 'top', maxLines: 3 },
+                    vAxis: { minValue: 0 },
                 }}
             />
         </div>

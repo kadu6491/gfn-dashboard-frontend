@@ -17,6 +17,7 @@ import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
 import SettingsApplicationsRoundedIcon from '@material-ui/icons/SettingsApplicationsRounded';
 import HelpRoundedIcon from '@material-ui/icons/HelpRounded';
 import PersonPinIcon from '@material-ui/icons/PersonPin';
+import StoreMallDirectoryOutlinedIcon from '@material-ui/icons/StoreMallDirectoryOutlined';
 
 import { withStyles } from '@material-ui/core/styles';
 
@@ -176,9 +177,9 @@ const DrawerList = (props) => {
                     <br /> <r /> <br />
                     <ListItem button className={classes.listNav} selected={selectedIndex === 8}>
                         <ListItemIcon>
-                            <HelpRoundedIcon style={{color: "white"}} />
+                            <StoreMallDirectoryOutlinedIcon style={{color: "white"}} />
                         </ListItemIcon>
-                        <ListItemText primary={"Stores"} />
+                        <ListItemText primary={"My Store"} />
                     </ListItem>
 
                 </List>
