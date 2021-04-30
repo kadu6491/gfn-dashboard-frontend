@@ -1,121 +1,66 @@
 import React from 'react'
 
 // Import Material UI libraries
-import {Box, Typography, Grid, Button, Hidden} from '@material-ui/core'
-
+import {Box, Typography, Grid, Button, Hidden, Tabs, Tab} from '@material-ui/core'
+import {TabContext, TabList, TabPanel} from '@material-ui/lab';
 
 // Import Material Icons
-import AddCircleOutlinedIcon from '@material-ui/icons/AddCircleOutlined';
+import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
 import CategoryOutlinedIcon from '@material-ui/icons/CategoryOutlined';
-import BookmarkOutlinedIcon from '@material-ui/icons/BookmarkOutlined';
-import Category from './Category'
+import LocalMallIcon from '@material-ui/icons/LocalMall';
 
 // Import Graph components
 
 // Import others
 import useStyle from './style'
 import BestSeller from './BestSeller';
+import Items from './Items';
 
 const ProductList = () => {
     const classes = useStyle();
+    const [value, setValue] = React.useState(`1`);
+
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
 
     return (
         <div>
-            <Box mt={3}>
-                <Hidden smUp implementation="css">
-                    <Grid
-                        container
-                        direction="row"
-                        justify="space-evenly"
-                        alignItems="center"
-                        // spacing={2}
-                        // style={{backgroundColor: "red"}}
-                    >
-                        <Grid item>
-                            <Button
-                                variant="contained"
-                                className={classes.newBtn}
-                                startIcon={<AddCircleOutlinedIcon />}
+            <Box bgcolor="white" className={classes.root}>
+                <Box bgcolor="inherit" className={classes.container}>
+                   <TabContext value={value}>
+                       <div>
+                            <TabList 
+                                onChange={handleChange} 
+                                indicatorColor="primary" 
+                                aria-label="simple tabs example"
+                                className={classes.tabList}
+                                textColor="inherit"
+                                
                             >
-                                New Item
-                            </Button>
-                        </Grid>
+                                <Tab icon={<CategoryOutlinedIcon />}  label="Category" value="1" className={classes.tabs} />
+                                <Tab icon={<LocalMallIcon />} label="Products" value="2" className={classes.tabs}/>
+                                <Tab icon={<AssignmentTurnedInIcon />} label="Best Seller" value="3" className={classes.tabs} />
+                            </TabList>
+                       </div>
 
-                        <Button
-                            variant="contained"
-                            className={classes.newBtn}
-                            startIcon={<AddCircleOutlinedIcon />}
-                        >
-                            New Category
-                        </Button>
-                    </Grid>
-                </Hidden>
-
-                <Hidden xsDown implementation="css">
-                    <Grid
-                        container
-                        direction="row"
-                        justify="space-evenly"
-                        alignItems="center"
-                    >
-                       <Grid item className={classes.newAdds}>
-                            <Box m={2}>
-                                <Button
-                                    className={classes.newBtn}
-                                >
-                                    <AddCircleOutlinedIcon className={classes.icon} />
-                                    <Typography align="left" variant="subtitle2" className={classes.typo}>
-                                        <span className={classes.typo1}>New Item</span> <br />
-                                        <Hidden mdDown implementation="css">
-                                            <span className={classes.typo2}>Click to add new product</span>
-                                        </Hidden>
-                                    </Typography>
-                                    
-                                </Button>
+                        <TabPanel value="1">
+                            <Box className={classes.value1}>
+                                <h4>Hello y all</h4>
                             </Box>
-                       </Grid>
-
-                       <Grid item className={classes.newAdds}>
-                            <Box m={2}>
-                                <Button
-                                    className={classes.newBtn}
-                                >
-                                    <CategoryOutlinedIcon className={classes.icon} />
-                                    <Typography align="left" variant="subtitle2" className={classes.typo}>
-                                        <span className={classes.typo1}>New Category</span> <br />
-                                        <Hidden mdDown implementation="css">
-                                            <span className={classes.typo2}>Click to add new category</span>
-                                        </Hidden>
-                                    </Typography>
-                                    
-                                </Button>
+                        </TabPanel>
+                        <TabPanel value="2">
+                            <Box pt={2}  className={classes.value1}>
+                                <Items />
                             </Box>
-                       </Grid>
+                        </TabPanel>
+                        <TabPanel value="3">Item Three</TabPanel>
+                   </TabContext>
 
-                       <Grid item className={classes.newAdds}>
-                            <Box m={2}>
-                                <Button
-                                    className={classes.newBtn}
-                                    disabled
-                                >
-                                    <BookmarkOutlinedIcon className={classes.icon} />
-                                    <Typography align="left" variant="subtitle2" className={classes.typo}>
-                                        <span className={classes.typo1}>Total Items</span> <br />
-                                        <Hidden mdDown implementation="css">
-                                            <span className={classes.typo2}>0000</span>
-                                        </Hidden>
-                                    </Typography>
-                                    
-                                </Button>
-                            </Box>
-                       </Grid>
-
-                    </Grid>
-                </Hidden>
-                <br />
-                
-                <Category />
-                <BestSeller />
+                    {/* <Tab icon={<CategoryOutlinedIcon />} label="Category" /> */}
+                        {/* <Tab icon={<BookmarkOutlinedIcon />} label="Products" /> */}
+                        {/* <Tab icon={<AddCircleOutlinedIcon />} label="Best Seller" /> */}
+                </Box>
             </Box>
         </div>
     )

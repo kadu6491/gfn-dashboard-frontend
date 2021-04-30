@@ -1,75 +1,57 @@
 import {makeStyles,} from '@material-ui/core/styles'
 
 const useStyle = makeStyles((theme) => ({
-    root: {
-        color: "white",
-    },
-    newAdds: {
-        backgroundColor: "white",
-        width: "33%",
-        // margin: theme.spacing(4)
-    },
-    newBtn: {
-        // backgroundColor: "#065471",
-        color: 'black',
-        '&:hover': {
-            backgroundColor: "white",
-        },
+   root: {
+        flexGrow: 1,
+        borderRadius: "8px",
+        marginTop: theme.spacing(2),
+        padding: "8px",
         [theme.breakpoints.down("xs")]: {
-            fontSize: "10px",
-            backgroundColor: "#065471",
-            color: "white",
-            '&:hover': {
-                backgroundColor: "#0a91ab",
-            },
-        },
-    },
-    typo: {
-        lineHeight: "17px",
-    },
-    typo1: {
-        fontSize: "15px",
-        fontWeight: "800",
-        letterSpacing: "2px",
-    },
-    typo2: {
-        fontSize: "10px",
-    },
-    icon: {
-        fontSize: "30px",
-        marginRight: "10px"
-    },
-    catTypo: {
-        fontSize: "25px",
-        paddingTop: "20px",
-        paddingBottom: "20px",
-        fontWeight: "600",
-        letterSpacing: "1.3px",
-        [theme.breakpoints.down('xs')]:
-        {
-            fontSize: "20px"
+            padding: theme.spacing(0.1),
         }
-    },
-    catRoot: {
+   },
+   container: {
+       // borderRadius: "8px",
+       // paddingLeft: theme.spacing(3),
+       // paddingTop: "10px",
+        width: "100%",
         
-    },
-    catCard: {
-        maxWidth: 280,
-    },
-
-    bestCard: {
-        maxWidth: 270,
-        height: "auto",
-    },
-    typoName: {
-        [theme.breakpoints.down('xs')]: {
-            fontSize: "9px",
+   },
+   tabs: {
+       fontSize: "11px",
+       [theme.breakpoints.down("xs")]: {
+            fontSize: "10px",
+            padding: "18px",
         },
-        fontFamily: 'Verdana, sans-serif',
-        fontSize: "12px",
-        // backgroundColor: "red",
-        height: "40px",
-    }
+        // backgroundColor: "pink",
+   },
+   value1: {
+       margin: "-20px"
+   },
+   tabList: {
+       '&:hover': {
+           color: "#0c2233",
+       },
+    //    backgroundColor: "yellow",
+   },
+   viewBtn: {
+       minWidth: "35px",
+       maxWidth: "35px",
+    //    backgroundColor: "yellow"
+   },
+   viewTabs: {
+    //    backgroundColor: "orange",
+       display: "flex",
+       justifyContent: "center",
+    //    maxWidth: 50,
+   },
+   vTab: {
+        // backgroundColor: "brown",
+        // maxWidth: "150px",
+   },
+   tabCon: {
+    //    maxWidth: "90px",
+   }
     
 }))
 
