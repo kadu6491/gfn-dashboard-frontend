@@ -1,8 +1,8 @@
 import React from 'react'
 
 // Import Material UI libraries
-import {Box, Typography, Grid, Button, Hidden, Tabs, Tab} from '@material-ui/core'
-import {TabContext, TabList} from '@material-ui/lab';
+import {Box, Button, Hidden, Tabs, Tab} from '@material-ui/core'
+import {withStyles } from '@material-ui/core/styles';
 
 import AppsOutlinedIcon from '@material-ui/icons/AppsOutlined';
 import ListAltOutlinedIcon from '@material-ui/icons/ListAltOutlined';
@@ -10,6 +10,33 @@ import ListAltOutlinedIcon from '@material-ui/icons/ListAltOutlined';
 // Import others
 import useStyle from './style'
 import TableList from '../list/TableList';
+import GridLists from '../list/GridLists';
+
+const AntTab = withStyles({
+    root: {
+    //   backgroundColor: "green",
+      maxWidth: 60,
+      minWidth: 60,
+      textTransform: 'none',
+      '&$selected': {
+            color: "#411e8f"
+        },
+    },
+    selected: {},
+})(Tab);
+
+const AntTabs = withStyles({
+    root: {
+    //   backgroundColor: "green",
+      width: "120px",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+    },
+    indicator: {
+        backgroundColor: 'white',
+    },
+})(Tabs);
 
 
 function TabPanel(props) {
@@ -43,25 +70,36 @@ const Items = () => {
     return (
         <div>
             <Box  display="flex" justifyContent="flex-end" pr={1}>
-                <Box className={classes.tabCon}>
-                    <Tabs 
-                        value={value} 
-                        onChange={handleChange} 
-                        aria-label="simple tabs example"
-                        className={classes.viewTabs}
-                    >
-                        <Tab className={classes.vTab} icon={<ListAltOutlinedIcon />} value="1" />
-                        <Tab icon={<AppsOutlinedIcon />} value="2" />
-                    </Tabs>
-                </Box>
+                <div className={classes.tabCon}>
+                    <Hidden xsDown implementation="js">
+                        <AntTabs 
+                            value={value} 
+                            onChange={handleChange} 
+                            aria-label="simple tabs example"
+                            centered
+                        >
+                            <AntTab wrapped icon={<ListAltOutlinedIcon />} value="1" />
+                            <AntTab wrapped icon={<AppsOutlinedIcon />} value="2" />
+                        </AntTabs>
+                    </Hidden>
+                </div>
             </Box>
             {/* <ListAltOutlinedIcon /> */}
             {/* <AppsOutlinedIcon /> */}
             <Box>
-                <TabPanel value={value} index="1">
-                    <TableList />
-                </TabPanel>
-                {/* {<TableList />} */}
+                <Hidden xsDown implementation="js">
+                    <TabPanel value={value} index="1">
+                        <TableList />
+                    </TabPanel>
+                    <TabPanel value={value} index="2">
+                        <GridLists />
+                    </TabPanel>
+                </Hidden>
+
+                <Hidden smUp implementation="js">
+                    <br />
+                    <GridLists />
+                </Hidden>
             </Box>
         </div>
     )

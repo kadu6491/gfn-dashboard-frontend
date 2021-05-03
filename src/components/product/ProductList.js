@@ -1,7 +1,7 @@
 import React from 'react'
 
 // Import Material UI libraries
-import {Box, Typography, Grid, Button, Hidden, Tabs, Tab} from '@material-ui/core'
+import {Box, Tab} from '@material-ui/core'
 import {TabContext, TabList, TabPanel} from '@material-ui/lab';
 
 // Import Material Icons
@@ -38,20 +38,20 @@ const ProductList = () => {
                                 textColor="inherit"
                                 
                             >
-                                <Tab icon={<CategoryOutlinedIcon />}  label="Category" value="1" className={classes.tabs} />
-                                <Tab icon={<LocalMallIcon />} label="Products" value="2" className={classes.tabs}/>
+                                <Tab icon={<LocalMallIcon />} label="Products" value="1" className={classes.tabs}/>
+                                <Tab icon={<CategoryOutlinedIcon />}  label="Category" value="2" className={classes.tabs} />
                                 <Tab icon={<AssignmentTurnedInIcon />} label="Best Seller" value="3" className={classes.tabs} />
                             </TabList>
                        </div>
 
                         <TabPanel value="1">
                             <Box className={classes.value1}>
-                                <h4>Hello y all</h4>
+                                <Items />
                             </Box>
                         </TabPanel>
                         <TabPanel value="2">
                             <Box pt={2}  className={classes.value1}>
-                                <Items />
+                                <h4>Hello y all</h4>
                             </Box>
                         </TabPanel>
                         <TabPanel value="3">Item Three</TabPanel>

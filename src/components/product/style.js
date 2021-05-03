@@ -40,14 +40,14 @@ const useStyle = makeStyles((theme) => ({
     //    backgroundColor: "yellow"
    },
    viewTabs: {
-    //    backgroundColor: "orange",
+       backgroundColor: "orange",
        display: "flex",
        justifyContent: "center",
-    //    maxWidth: 50,
+       width: 200,
    },
    vTab: {
         // backgroundColor: "brown",
-        // maxWidth: "150px",
+        width: 100,
    },
    tabCon: {
     //    maxWidth: "90px",
