@@ -58,6 +58,7 @@ const useStyles = makeStyles((theme) => ({
     typoo1: {
         fontSize: "16px",
         paddingTop: "10px",
+        paddingLeft: "5px",
         [theme.breakpoints.down('xs')]: {
             fontSize: "11px",
             paddingLeft: "1px",
@@ -67,6 +68,7 @@ const useStyles = makeStyles((theme) => ({
         fontSize: "12px",
         fontWeight: "700",
         paddingTop: "20px",
+        paddingLeft: "5px",
         fontFamily: 'Verdana, sans-serif',
         [theme.breakpoints.down('xs')]: {
             fontSize: "9px",
@@ -147,7 +149,7 @@ const GridLists = () => {
                 <li key={id}>{row.title}</li>
             ))} */}
             
-            <Box>
+            <Box mt={2}>
                 <TablePagination
                     rowsPerPageOptions={[12, 25, 100]}
                     component="div"
