@@ -1,11 +1,12 @@
 import React from 'react'
 
 // Import Material UI libraries
-import {Box, Button, Hidden, Tabs, Tab} from '@material-ui/core'
+import {Box, Button, Hidden, Tabs, Tab, Divider} from '@material-ui/core'
 import {withStyles } from '@material-ui/core/styles';
 
 import AppsOutlinedIcon from '@material-ui/icons/AppsOutlined';
 import ListAltOutlinedIcon from '@material-ui/icons/ListAltOutlined';
+import AddCircleRoundedIcon from '@material-ui/icons/AddCircleRounded';
 
 // Import others
 import useStyle from './style'
@@ -69,8 +70,16 @@ const Items = () => {
 
     return (
         <div>
-            <Box  display="flex" justifyContent="flex-end" pr={1}>
+            <Divider />
+            <Box display="flex" justifyContent="flex-end" pr={1}>
                 <div className={classes.tabCon}>
+                    <Button 
+                        variant="contained"
+                        className={classes.btnAdd}
+                        startIcon={<AddCircleRoundedIcon />}
+                    >
+                        New Item
+                    </Button>
                     <Hidden xsDown implementation="js">
                         <AntTabs 
                             value={value} 

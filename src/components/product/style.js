@@ -50,7 +50,17 @@ const useStyle = makeStyles((theme) => ({
         width: 100,
    },
    tabCon: {
-    //    maxWidth: "90px",
+    //    backgroundColor: "red",
+       display: "flex",
+       marginTop: "10px",
+   },
+
+   btnAdd: {
+       backgroundColor: "#1d3557",
+       color: "white",
+       '&:hover': {
+           backgroundColor: "#457b9d"
+       }
    }
     
 }))

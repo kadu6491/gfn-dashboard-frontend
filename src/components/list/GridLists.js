@@ -22,8 +22,10 @@ const useStyles = makeStyles((theme) => ({
         // backgroundColor: "red",
     },
     gridItem: {
-        // backgroundColor: "red",
+        // backgroundColor: "green",
         border: "3px solid #dee2e6",
+        display: "flex",
+        justifyContent: "center"
         // marginBottom: "10px",
     },
     boxItem: {
@@ -44,7 +46,8 @@ const useStyles = makeStyles((theme) => ({
             height: "100%", 
         },
         [theme.breakpoints.down('xs')]: {
-            height: "155px"
+            height: "155px",
+            width: "100%",
         },
         [theme.breakpoints.down('md')]: {
             maxHeight: "200px"
@@ -92,8 +95,9 @@ const useStyles = makeStyles((theme) => ({
     icon: {
         [theme.breakpoints.down('xs')]: {
             fontSize: "16px",
-            marginRight: '10px',
-        }
+            // marginRight: '10px',
+        },
+        color: "#1d3557",
     }
 }));
 
@@ -130,7 +134,7 @@ const GridLists = () => {
                             <Typography variant="subtitle2" className={classes.typoo1}>
                                 ${row.price}
                             </Typography>
-                            <Button color="secondary" className={classes.edit}>
+                            <Button className={classes.edit}>
                                 <EditIcon className={classes.icon} />
                             </Button>
                         </div>
