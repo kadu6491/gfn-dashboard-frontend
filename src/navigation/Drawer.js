@@ -96,7 +96,7 @@ const DrawerList = (props) => {
                         className={classes.listNav}
                         selected={selectedIndex === 0}
                         component="a"
-                        href="dashboard"
+                        href="/dashboard"
                     >
                         <ListItemIcon>
                             <DashboardRoundedIcon style={{color: "white"}}/>

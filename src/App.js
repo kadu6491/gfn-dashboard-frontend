@@ -13,6 +13,7 @@ import Dashboard from './pages/Home/Dashboard';
 import Analysis from './pages/Home/Analysis';
 import Products from './pages/Home/Products';
 import { StoreInfo } from './store/new/StoreInfo';
+import AddProduct from './pages/Product/AddProduct';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/dashboard/" exact component={Dashboard} />
           <Route path="/analysis/" exact component={Analysis} />
           <Route path="/products/" exact component={Products} />
+          <Route path="/products/new" exact component={AddProduct} />
         </Switch>
       </Router>
   );

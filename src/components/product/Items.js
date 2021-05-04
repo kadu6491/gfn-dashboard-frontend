@@ -77,6 +77,7 @@ const Items = () => {
                         variant="contained"
                         className={classes.btnAdd}
                         startIcon={<AddCircleRoundedIcon />}
+                        href="/products/new"
                     >
                         New Item
                     </Button>
