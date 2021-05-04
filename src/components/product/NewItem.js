@@ -41,9 +41,6 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: "70px",
         minWidth: "70px",
         fontSize: "12px",
-        [theme.breakpoints.down('xs')]: {
-            fontSize: "8px"
-        }
     },
     save: {
         marginRight: "10px",
@@ -57,9 +54,8 @@ const useStyles = makeStyles((theme) => ({
             backgroundColor: "#457b9d",
         },
         [theme.breakpoints.down('xs')]: {
-            fontSize: "8px",
-            maxWidth: "80px",
-            minWidth: "80px",
+            maxWidth: "110px",
+            minWidth: "110px",
         }
     }
 
@@ -217,7 +213,8 @@ const NewItem = (props) => {
                                     {...props}
                                     withIcon={true}
                                     onChange={onDrop}
-                                    imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+                                    imgExtension={[".jpg", ".gif", ".png", ".gif", ".jpeg"]}
+                                    label="Max file size: 5MG"
                                     maxFileSize={5242880}
                                     withPreview={true}
                                 />

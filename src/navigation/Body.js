@@ -45,7 +45,7 @@ const DrawerNav = (props) => {
                     <div className={classes.toolbar} />
                 </Hidden>
                 <Hidden xsDown implementation="css">
-                    <Header initial={initial} badge={5} />
+                    <Header initial={initial} badge={0} />
                 </Hidden>
                 
                 {props.main}
