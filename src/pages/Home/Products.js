@@ -5,7 +5,7 @@ import Body from '../../navigation/Body'
 
 const Products = () => {
     return (
-        <Body main={<ProductList />} num={2}/>
+        <Body main={<ProductList />} num={2} title="Products"/>
     )
 }
 

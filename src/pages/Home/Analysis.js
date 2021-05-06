@@ -16,6 +16,7 @@ const Analysis = () => {
             <Body 
                 main={<h6>This is Analysis</h6>}
                 num={1}
+                title="Analysis"
             />
         </div>
     )
