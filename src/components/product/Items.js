@@ -1,7 +1,7 @@
 import React from 'react'
 
 // Import Material UI libraries
-import {Box, Button, Hidden, Tabs, Tab, Divider} from '@material-ui/core'
+import {Box, Button, Hidden, Tabs, Tab} from '@material-ui/core'
 import {withStyles } from '@material-ui/core/styles';
 
 import AppsOutlinedIcon from '@material-ui/icons/AppsOutlined';
@@ -70,7 +70,7 @@ const Items = () => {
 
     return (
         <div>
-            <Divider />
+            
             <Box display="flex" justifyContent="flex-end" pr={1}>
                 <div className={classes.tabCon}>
                     <Button 

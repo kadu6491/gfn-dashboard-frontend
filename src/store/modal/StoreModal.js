@@ -102,13 +102,7 @@ const StoreModal = (props) => {
                     <br /> <br />
 
                     {props.loading ? null :
-                        <Button 
-                            variant="contained" 
-                            color="primary"
-                            href="/dashboard"
-                        >
-                            Exit to Dashboard
-                        </Button>
+                        props.action
                         
                     }
                 </div>

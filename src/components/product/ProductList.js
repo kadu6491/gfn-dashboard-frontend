@@ -1,7 +1,7 @@
 import React from 'react'
 
 // Import Material UI libraries
-import {Box, Tab} from '@material-ui/core'
+import {Box, Divider, Tab} from '@material-ui/core'
 import {TabContext, TabList, TabPanel} from '@material-ui/lab';
 
 // Import Material Icons
@@ -43,7 +43,7 @@ const ProductList = () => {
                                 <Tab icon={<AssignmentTurnedInIcon />} label="Best Seller" value="3" className={classes.tabs} />
                             </TabList>
                        </div>
-
+                        <Divider />
                         <TabPanel value="1">
                             <Box className={classes.value1}>
                                 <Items />

@@ -18,6 +18,7 @@ const LoginForm = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState(false)
+    const [loading, setLoading] = useState(false)
     
     let history = useHistory()
 
@@ -47,6 +48,7 @@ const LoginForm = () => {
         }).then(resp => {
             if(resp.data.msg === "success")
             {
+                setLoading(true)
                 localStorage.setItem("token", resp.data.token)
                 localStorage.setItem("sessid", resp.data.sessid)
                 history.push("/dashboard")
@@ -105,7 +107,7 @@ const LoginForm = () => {
                             color="primary"
                             className={classes.submit}
                         >
-                            Sign In
+                            {loading ? "Please wait, logging in....." : "SIGN IN"}
                         </Button>
                         <Grid container>
                             <Grid item xs style={{marginBottom: "10px"}}>

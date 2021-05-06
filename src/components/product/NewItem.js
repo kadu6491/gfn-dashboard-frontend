@@ -1,9 +1,12 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 
 import { InputBase, TextField, FormHelperText, Box, Button, Divider, Typography, Grid, NativeSelect, InputLabel, Hidden } from '@material-ui/core';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 
 import ImageUploader from 'react-images-upload';
+
+import api from '../../api'
+import StoreModal from '../../store/modal/StoreModal';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -96,16 +99,135 @@ const StrapInput = withStyles((theme) => ({
 
 const NewItem = (props) => {
     const classes = useStyles()
-    const [pictures, setPictures] = React.useState([]);
+    const [name, setName] = useState("")
+    const [price, setPrice] = useState()
+    const [quantity, setQuantity] = useState()
+    const [category, setCategory] = useState("")
+    const [description, setDescription] = useState("")
+    const [pictures, setPictures] = useState([]);
+
+    const [cat, setCat] = useState([])
+    const [errors, setErrors] = useState(false)
+    const [pe, setPE] = useState(false)
+    const [qe, setQE] = useState(false)
+    const [ce, setCE] = useState(false)
+    const [de, setDE] = useState(false)
+
+    const [open, setOpen] = React.useState(false);
+    const [loading, setLoading] = React.useState(false);
+    const [success, setSuccess] = React.useState(false);
+    const [systemError, setSystemError] = React.useState(false)
+
+    const timer = React.useRef();
+
+    let id = localStorage.getItem("sessid");
     
+    const onChangeName = (e) => {
+        setName(e.target.value)
+    }
+
+    const onChangePrice = (e) => {
+        setPrice(e.target.value)
+    }
+
+    const onChangeQuantity = (e) => {
+        setQuantity(e.target.value)
+    }
+
+    const onChangeCategory = (e) => {
+        setCategory(e.target.value)
+    }
+
+    const onChangeDescription = (e) => {
+        setDescription(e.target.value)
+    }
+
     const onDrop = picture => {
         setPictures([...pictures, picture]);
     };
 
-    const onSubmit = (event) => {
-        event.preventDefault();
-        console.log(pictures)
+    const handleError = () => {
+        if(name == ""){
+            setErrors(!errors)
+        }
+        if(price == undefined)
+        {
+            setPE(!pe)
+        }
     }
+
+    const onSubmit = (event) => {
+        event.preventDefault()
+
+        if(name === "")
+        {
+            setErrors(true)
+            console.log("there is an error")
+        }
+        if(price === undefined)
+        {
+            setPE(true)
+        }
+        if(quantity === undefined)
+        {
+            setQE(true)
+        }
+        if(category === "")
+        {
+            setCE(true)
+        }
+        if(description === "")
+        {
+            setDE(true)
+        }
+        else {
+            console.log(id)
+            console.log(name)
+            console.log(price)
+            console.log(quantity)
+            console.log(category)
+            console.log(description)
+
+            if (!loading) {
+                setSuccess(false);
+                setLoading(true);
+                setOpen(!open);
+                timer.current = window.setTimeout(() => {
+                    setSuccess(true);
+                    setLoading(false);
+                }, 2000);
+            }
+        }
+
+        let pic = []
+        
+        pictures.map((item, key) => {
+            console.log(item)
+            // item.map((nam, id) => {
+            //     console.log(nam.name)
+            //     pic.push(nam.name)
+            // })
+        })
+
+        // api.post('/product/new/', {
+        //     id,
+        //     name,
+        //     price,
+        //     quantity,
+        //     category,
+        //     description,
+        //     // "pictures": pic,
+        // }).then(resp => {
+        //     console.log(resp)
+        // })
+    };
+
+    useEffect(() => {
+        api.get("/category/").then(resp => {
+            console.log(resp.data)
+            setCat(resp.data)
+        })
+    }, [])
 
     return (
         <div>
@@ -139,7 +261,10 @@ const NewItem = (props) => {
                                     // size="small" 
                                     id="outlined-basic" 
                                     label="Name" 
-                                    variant="outlined" 
+                                    variant="outlined"
+                                    value={name}
+                                    onChange={onChangeName}
+                                    error={errors}
                                     className={classes.boxInput}
                                 />
                                 <FormHelperText id="my-helper-text" style={{paddingLeft: "8px"}}>
@@ -152,7 +277,10 @@ const NewItem = (props) => {
                                     // size="small" 
                                     id="outlined-basic" 
                                     label="Price" 
-                                    variant="outlined" 
+                                    variant="outlined"
+                                    value={price}
+                                    onChange={onChangePrice}
+                                    error={pe} 
                                     className={classes.boxInput}
                                 />
                                 <FormHelperText id="my-helper-text" style={{paddingLeft: "8px"}}>
@@ -165,7 +293,10 @@ const NewItem = (props) => {
                                     // size="small" 
                                     id="outlined-basic" 
                                     label="Quantity" 
-                                    variant="outlined" 
+                                    variant="outlined"
+                                    value={quantity}
+                                    onChange={onChangeQuantity}
+                                    error={qe} 
                                     className={classes.boxInput}
                                 />
                                 <FormHelperText id="my-helper-text" style={{paddingLeft: "8px"}}>
@@ -177,12 +308,16 @@ const NewItem = (props) => {
                                 <NativeSelect 
                                     variant="outlined" 
                                     id="demo-customized-select-native"
-                                    input={<StrapInput />}
+                                    input={<StrapInput error={ce}/>}
                                     className={classes.boxInput}
+                                    value={category}
+                                    error={ce}
+                                    onChange={onChangeCategory}
                                 >
                                     <option value="">Select category</option>
-                                    <option value="10">Ten</option>
-                                    <option value="20">Twenty</option>
+                                    {cat.map((item, id) => (
+                                        <option value={item._id.$oid} key={id}>{item.name}</option>
+                                    ))}
                                 </NativeSelect>
                                 <FormHelperText id="my-helper-text" style={{paddingLeft: "8px"}}>
                                     Select the category.
@@ -200,6 +335,9 @@ const NewItem = (props) => {
                                 multiline
                                 rows={9}
                                 variant="outlined"
+                                value={description}
+                                onChange={onChangeDescription}
+                                error={de}
                                 className={classes.textArea}
                             />
                             <FormHelperText id="my-helper-text" style={{paddingLeft: "8px"}}>
@@ -226,6 +364,28 @@ const NewItem = (props) => {
                     </form>
                 </Box>
             </Box>
+
+            <StoreModal 
+                open={open}
+                success={success}
+                loading={loading}
+                action={
+                    <div>
+                        <Button 
+                            href="/products/"
+                            style={{marginRight: "5px", backgroundColor: "#457b9d"}}
+                        >
+                            Exit
+                        </Button>
+                        <Button 
+                            href="/products/new/"
+                            className={classes.save}
+                        >
+                            Add Item
+                        </Button>
+                    </div>
+                }
+            />
             {/* <FormControl>
                 <InputField 
                     size="small" 

@@ -130,7 +130,13 @@ const DrawerList = (props) => {
                         <ListItemText primary={"Products"} />
                     </ListItem>
 
-                    <ListItem button className={classes.listNav} selected={selectedIndex === 3}>
+                    <ListItem 
+                        button 
+                        className={classes.listNav} 
+                        selected={selectedIndex === 3}
+                        component="a"
+                        href="/orders"
+                    >
                         <ListItemIcon>
                             <CreditCardIcon style={{color: "white"}} />
                         </ListItemIcon>
