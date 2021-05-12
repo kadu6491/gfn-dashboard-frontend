@@ -1,6 +1,7 @@
+
 const RowData = [
     { 
-        id: "#3456", 
+        id: "3456", 
         customer: 'Jon Snow', 
         address: '1745 T Street Southeast, Washington, DC, 20020', 
         date: '31 Jun 2020',
@@ -10,7 +11,7 @@ const RowData = [
     },
     
     { 
-        id: "#3434",
+        id: "3434",
         customer: 'Cersei Lannister', 
         address: '6007 Applegate Lane, Louisville, KY, 40219',
         date: '03 Aug 2020',
@@ -20,13 +21,13 @@ const RowData = [
     },
     
     { 
-        id: "#3423", 
+        id: "3423", 
         customer: 'Jaime Lannister', 
         address: '560 Penstock Drive, Grass Valley, CA, 95945',
         date: '21 Feb 2021',
         total: '$43.23',
-        status: 'Completed',
-        action: '', 
+        status: 'Shipped',
+        action: 'Pending', 
     },
     
     { 
@@ -35,7 +36,7 @@ const RowData = [
         address: '150 Carter Street, Manchester, CT, 06040',
         date: '22 Feb 2021',
         total: '$56.00',
-        status: '',
+        status: 'Completed',
         action: '', 
     },
     
@@ -45,7 +46,7 @@ const RowData = [
         address: '2721 Lindsay Avenue, Louisville, KY, 40206',
         date: '11 Mar 2021',
         total: '$65.90',
-        status: '',
+        status: 'Pending',
         action: '', 
     },
     
@@ -55,7 +56,7 @@ const RowData = [
         address: '18 Densmore Drive, Essex, VT, 05452',
         date: '13 Mar 2021',
         total: '$10.12',
-        status: '',
+        status: 'Completed',
         action: '', 
     },
     
@@ -64,8 +65,8 @@ const RowData = [
         customer: 'Ferrara Clifford', 
         address: '637 Britannia Drive, Vallejo, CA, 94591',
         date: '04 May 2021',
-        total: '1,123',
-        status: '',
+        total: '$1,123',
+        status: 'Completed',
         action: '',
     },
 ]

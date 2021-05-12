@@ -1,7 +1,7 @@
 import React from 'react'
 
 import useStyles from './style'
-import {Button, Grid, Box, Badge, InputBase} from '@material-ui/core'
+import {Button, Grid, Box, Badge, InputBase, Avatar, IconButton} from '@material-ui/core'
 import SearchIcon from '@material-ui/icons/Search';
 import NotificationsNoneRoundedIcon from '@material-ui/icons/NotificationsNoneRounded';
 import MailOutlineRoundedIcon from '@material-ui/icons/MailOutlineRounded';
@@ -55,9 +55,10 @@ const Header = (props) => {
                 </Box>
                 
                 <Box>
-                    <Button className={classes.initialBtn}>
-                        {props.initial}
-                    </Button>
+                    {/* <Avatar className={classes.initialBtn}>{props.initial}</Avatar> */}
+                    <IconButton>
+                        <Avatar className={classes.initialBtn}>{props.initial}</Avatar>
+                    </IconButton>
                 </Box>
             </Grid>
         </div>

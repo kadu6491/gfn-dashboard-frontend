@@ -2,7 +2,7 @@ import {makeStyles,} from '@material-ui/core/styles'
 
 const useStyle = makeStyles((theme) => ({
     root: {
-        flexGrow: 1,
+        // flexGrow: 1,
         borderRadius: "8px",
         marginTop: theme.spacing(2),
         padding: "8px",

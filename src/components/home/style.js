@@ -9,15 +9,18 @@ const useStyles = makeStyles((theme) => ({
         padding: "8px",
     },
     initialBtn: {
-        backgroundColor: "#0c3c78",
-        maxWidth: btnSize,
-        maxHeight: btnSize,
-        minWidth: btnSize,
-        minHeight: btnSize,
-        borderRadius: "50%",
+        backgroundColor: "#0c2233",
+        // maxWidth: btnSize,
+        // maxHeight: btnSize,
+        // minWidth: btnSize,
+        // minHeight: btnSize,
+        // borderRadius: "50%",
+        width: theme.spacing(4),
+        height: theme.spacing(4),
+        fontSize: "10px",
         color: "white",
         fontWeight: "800",
-        marginRight: theme.spacing(3),
+        // marginRight: theme.spacing(3),
         "&:hover": {
             backgroundColor: "black",
         }
@@ -73,6 +76,9 @@ const useStyles = makeStyles((theme) => ({
     grow: {
         flexGrow: 1,
     },
+    avator: {
+        backgroundColor: ""
+    }
 }))
 
 export default useStyles

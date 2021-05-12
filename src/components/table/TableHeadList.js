@@ -3,7 +3,7 @@ import React from 'react'
 import { TableCell, TableHead, TableRow, TableSortLabel } from '@material-ui/core';
 
 const TableHeadList = (props) => {
-    const { classes, order, orderBy, rowCount, onRequestSort } = props;
+    const { classes, order, orderBy, onRequestSort } = props;
     const createSortHandler = (property) => (event) => {
         onRequestSort(event, property);
     };
@@ -21,6 +21,7 @@ const TableHeadList = (props) => {
                             active={orderBy === headCell.id}
                             direction={orderBy === headCell.id ? order : 'asc'}
                             onClick={createSortHandler(headCell.id)}
+                            className={classes.head}
                         >
                             {headCell.label}
                             {orderBy === headCell.id ? (
