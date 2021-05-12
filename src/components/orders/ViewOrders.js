@@ -11,6 +11,7 @@ import CreditCardIcon from '@material-ui/icons/CreditCard';
 import CheckCircleRoundedIcon from '@material-ui/icons/CheckCircleRounded';
 
 import useStyle from './style'
+import AllOrders from './AllOrders';
 
 const ViewOrders = () => {
     const classes = useStyle();
@@ -44,7 +45,7 @@ const ViewOrders = () => {
                         <Divider />
                         <TabPanel value="1" className={classes.value1}>
                             <Box>
-                                <h4>Tab 2000</h4>
+                                <AllOrders />
                             </Box>
                         </TabPanel>
                         <TabPanel value="2" className={classes.value1}>

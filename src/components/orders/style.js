@@ -16,7 +16,10 @@ const useStyle = makeStyles((theme) => ({
        // borderRadius: "8px",
        // paddingLeft: theme.spacing(3),
        // paddingTop: "10px",
-        width: "94%",
+        width: "100%",
+        [theme.breakpoints.down('xs')]: {
+            width: "94%",
+        }
         
    },
     tabs: {
@@ -30,7 +33,11 @@ const useStyle = makeStyles((theme) => ({
          
     },
     value1: {
-        margin: "-20px"
+        marginLeft: "-20px",
+        marginRight: "-20px",
+        [theme.breakpoints.down('xs')]: {
+            marginRight: "-35px",
+        }
     },
     tabList: {
         '&:hover': {
