@@ -48,7 +48,7 @@ const useStyles = makeStyles({
 const MainTable = (props) => {
     const classes = useStyles();
     const [page, setPage] = React.useState(0);
-    const [rowsPerPage, setRowsPerPage] = React.useState(5);
+    const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -71,6 +71,7 @@ const MainTable = (props) => {
                             <StyledTableCell>Customer</StyledTableCell>
                             <StyledTableCell>Date</StyledTableCell>
                             <StyledTableCell>Total</StyledTableCell>
+                            <StyledTableCell>Method</StyledTableCell>
                             <StyledTableCell>Status</StyledTableCell>
                             <StyledTableCell align="right">Actions</StyledTableCell>
                         </TableRow>
@@ -84,6 +85,7 @@ const MainTable = (props) => {
                                 <StyledTableCell>{row.customer}</StyledTableCell>
                                 <StyledTableCell>{row.date}</StyledTableCell>
                                 <StyledTableCell>{row.total}</StyledTableCell>
+                                <StyledTableCell>{row.method}</StyledTableCell>
                                 <StyledTableCell>
                                     {row.status === "Completed" ? <Completed /> : null}
                                     {row.status === "Pending" ? <Pending /> : null}
@@ -108,7 +110,7 @@ const MainTable = (props) => {
                 </Typography>
             )}
             <TablePagination
-                rowsPerPageOptions={[5, 10, 25]}
+                rowsPerPageOptions={[10, 15, 25, 45]}
                 component="div"
                 count={props.rows.length}
                 rowsPerPage={rowsPerPage}

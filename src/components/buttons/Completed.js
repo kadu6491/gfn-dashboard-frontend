@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
     root: {
         backgroundColor: "#5cb85c",
-        boxShadow: `0 0 1px #fff, 0px 0px 19px #5cb85c`,
+        boxShadow: `0 0 1px #fff, 0px 0px 8px #5cb85c`,
         borderRadius: "10px",
         width: "50%",
         [theme.breakpoints.down('md')]: {

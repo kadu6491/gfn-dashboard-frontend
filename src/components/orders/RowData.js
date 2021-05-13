@@ -7,6 +7,7 @@ const RowData = [
         date: '31 Jun 2020',
         total: '$64.00',
         status: 'New',
+        method: "Pickup",
         action: '',  
     },
     
@@ -17,7 +18,8 @@ const RowData = [
         date: '03 Aug 2020',
         total: '$98.45',
         status: 'Shipped',
-        action: '', 
+        action: '',
+        method: "Delivery", 
     },
     
     { 
@@ -27,7 +29,8 @@ const RowData = [
         date: '21 Feb 2021',
         total: '$43.23',
         status: 'Shipped',
-        action: 'Pending', 
+        action: '',
+        method: "Delivery", 
     },
     
     { 
@@ -37,7 +40,8 @@ const RowData = [
         date: '22 Feb 2021',
         total: '$56.00',
         status: 'Completed',
-        action: '', 
+        action: '',
+        method: "Pickup", 
     },
     
     { 
@@ -48,6 +52,7 @@ const RowData = [
         total: '$65.90',
         status: 'Pending',
         action: '', 
+        method: "Delivery",
     },
     
     { 
@@ -57,7 +62,8 @@ const RowData = [
         date: '13 Mar 2021',
         total: '$10.12',
         status: 'Completed',
-        action: '', 
+        action: '',
+        method: "Delivery", 
     },
     
     { 
@@ -68,6 +74,7 @@ const RowData = [
         total: '$1,123',
         status: 'Completed',
         action: '',
+        method: "Pickup",
     },
 ]
 
