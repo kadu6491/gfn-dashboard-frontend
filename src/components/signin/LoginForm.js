@@ -42,19 +42,20 @@ const LoginForm = () => {
 
     const handleOnSubmit = (event) => {
         event.preventDefault();
+        setLoading(true)
         api.post('/signin/', {
             "email": email,
             "password": password, 
         }).then(resp => {
             if(resp.data.msg === "success")
             {
-                setLoading(true)
                 localStorage.setItem("token", resp.data.token)
                 localStorage.setItem("sessid", resp.data.sessid)
                 history.push("/dashboard")
             }
             else {
                 setError(true)
+                setLoading(false)
             }
         })
     }

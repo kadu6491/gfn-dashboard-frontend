@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: "#d9534f",
         boxShadow: `0 0 5px #d9534f, 0px 0px 5px #d9534f`,
         borderRadius: "10px",
-        width: "50%",
+        width: "64%",
         [theme.breakpoints.down('md')]: {
             width: "100%",
         }
