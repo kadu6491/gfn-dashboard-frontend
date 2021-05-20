@@ -61,6 +61,13 @@ const useStyles = makeStyles((theme) => ({
     grow: {
         flexGrow: 1,
       },
+    nestedxs: {
+        paddingLeft: theme.spacing(4),
+        "&:hover": {
+            backgroundColor: "#065471",
+            opacity: "0.7",
+        },
+      },
 }));
 
 export default useStyles

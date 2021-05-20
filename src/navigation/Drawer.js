@@ -2,7 +2,7 @@ import React from 'react'
 
 import {
     Divider, List, ListItemIcon, ListItemText, Typography, 
-    Button, Box, Grid,
+    Button, Box, Grid, Collapse,
 } from '@material-ui/core'
 
 import MuiListItem from "@material-ui/core/ListItem";
@@ -18,12 +18,17 @@ import SettingsApplicationsRoundedIcon from '@material-ui/icons/SettingsApplicat
 import HelpRoundedIcon from '@material-ui/icons/HelpRounded';
 import PersonPinIcon from '@material-ui/icons/PersonPin';
 import StoreMallDirectoryOutlinedIcon from '@material-ui/icons/StoreMallDirectoryOutlined';
+import CancelIcon from '@material-ui/icons/Cancel';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import AssignmentReturnedIcon from '@material-ui/icons/AssignmentReturned';
+import ViewStreamIcon from '@material-ui/icons/ViewStream';
 
 import { withStyles } from '@material-ui/core/styles';
 
 import {useHistory} from 'react-router-dom'
 
 import useStyles from './style'
+import { ChevronRightOutlined, ExpandMoreOutlined } from '@material-ui/icons';
 
 const ListItem = withStyles({
     root: {
@@ -44,6 +49,12 @@ const ListItem = withStyles({
 const DrawerList = (props) => {
     const classes = useStyles()
     const [selectedIndex, setSelectedIndex] = React.useState(props.num);
+    const [open, setOpen] = React.useState(false);
+
+    const handleClick = () => {
+        setOpen(!open);
+    };
+
     let history = useHistory()
     
     const logout = () => {
@@ -128,21 +139,49 @@ const DrawerList = (props) => {
                             <LocalMallRoundedIcon style={{color: "white"}} />
                         </ListItemIcon>
                         <ListItemText primary={"Products"} />
-                    </ListItem>
-
+                    </ListItem>              
                     <ListItem 
                         button 
                         className={classes.listNav} 
                         selected={selectedIndex === 3}
                         component="a"
-                        href="/orders"
+                        onClick={handleClick}
+                        // href="/orders"
                     >
                         <ListItemIcon>
                             <CreditCardIcon style={{color: "white"}} />
                         </ListItemIcon>
                         <ListItemText primary={"Orders"} />
+                        {open ? <ExpandMoreOutlined /> : <ChevronRightOutlined />}
                     </ListItem>
-
+                    <Collapse in={open} timeout="auto" unmountOnExit >
+                        <List disablePadding >
+                            <ListItem button component="a" className={classes.nestedxs} href="/orders">
+                                <ListItemIcon>
+                                    <ViewStreamIcon style={{color: "white"}}/>
+                                </ListItemIcon>
+                                <ListItemText primary="All Orders" />
+                            </ListItem>
+                            <ListItem button component="a" className={classes.nestedxs}>
+                                <ListItemIcon>
+                                    <CheckCircleIcon style={{color: "white"}}/>
+                                </ListItemIcon>
+                                <ListItemText primary="Completed" />
+                            </ListItem>
+                            <ListItem button component="a" className={classes.nestedxs}>
+                                <ListItemIcon>
+                                    <CancelIcon style={{color: "white"}}/>
+                                </ListItemIcon>
+                                <ListItemText primary="Canceled" />
+                            </ListItem>
+                            <ListItem button component="a" className={classes.nestedxs}>
+                                <ListItemIcon>
+                                    <AssignmentReturnedIcon style={{color: "white"}}/>
+                                </ListItemIcon>
+                                <ListItemText primary="Returns" />
+                            </ListItem>
+                        </List>
+                    </Collapse>  
                     <ListItem button className={classes.listNav} selected={selectedIndex === 4}>
                         <ListItemIcon>
                             <LocalOfferIcon style={{color: "white"}} />

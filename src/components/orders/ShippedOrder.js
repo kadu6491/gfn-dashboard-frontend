@@ -4,12 +4,11 @@ import MainTable from '../table/MainTable';
 import RowContent from '../table/RowContent';
 import RowData from './RowData';
 
-import Pending from '../buttons/Pending';
+import Shipped from '../buttons/Shipped';
 
 import useStyle from './style'
 
-
-const PendingOrder = () => {
+const ShippedOrder = () => {
     const classes = useStyle()
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -36,10 +35,10 @@ const PendingOrder = () => {
                 TableContent={
                     <RowContent 
                         RowData={RowData}
-                        orderStatus="Pending"
+                        orderStatus="Shipped"
                         page={page}
                         rowsPerPage={rowsPerPage}
-                        status={<Pending />}
+                        status={<Shipped />}
                     />
                 }
                 emptyRows={emptyRows}
@@ -48,4 +47,4 @@ const PendingOrder = () => {
     )
 }
 
-export default PendingOrder
+export default ShippedOrder
