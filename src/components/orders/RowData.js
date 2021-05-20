@@ -34,7 +34,7 @@ const RowData = [
     },
     
     { 
-        id: "#3457", 
+        id: "3457", 
         customer: 'Arya Stark', 
         address: '150 Carter Street, Manchester, CT, 06040',
         date: '22 Feb 2021',
@@ -45,18 +45,18 @@ const RowData = [
     },
     
     { 
-        id: "#3458", 
+        id: "3458", 
         customer: 'Daenerys Targaryen', 
         address: '2721 Lindsay Avenue, Louisville, KY, 40206',
         date: '11 Mar 2021',
         total: '$65.90',
         status: 'Pending',
         action: '', 
-        method: "Delivery",
+        method: "Pickup",
     },
     
     { 
-        id: "#3459", 
+        id: "3459", 
         customer: 'Ferrara Melisandre', 
         address: '18 Densmore Drive, Essex, VT, 05452',
         date: '13 Mar 2021',
@@ -67,12 +67,22 @@ const RowData = [
     },
     
     { 
-        id: "#3460", 
+        id: "3460", 
         customer: 'Ferrara Clifford', 
         address: '637 Britannia Drive, Vallejo, CA, 94591',
         date: '04 May 2021',
         total: '$1,123',
         status: 'Completed',
+        action: '',
+        method: "Pickup",
+    },
+    { 
+        id: "3460", 
+        customer: 'Ferrara Clifford', 
+        address: '637 Britannia Drive, Vallejo, CA, 94591',
+        date: '04 May 2021',
+        total: '$1,123',
+        status: 'Pending',
         action: '',
         method: "Pickup",
     },

@@ -70,6 +70,14 @@ const useStyle = makeStyles((theme) => ({
     tabDiv: {
         // backgroundColor: "pink",
         // borderBottom: "3px solid #688eff",
+    },
+    orrderTableDiv: {
+        // backgroundColor: "red",
+        width: "100%",
+        [theme.breakpoints.down("xs")]:
+        {
+            width: "92vw",
+        },
     }
 }))
 

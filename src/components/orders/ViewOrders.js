@@ -12,6 +12,9 @@ import CheckCircleRoundedIcon from '@material-ui/icons/CheckCircleRounded';
 
 import useStyle from './style'
 import AllOrders from './AllOrders';
+import NewOrders from './NewOrders';
+import PendingOrder from './PendingOrder';
+import CompletedOrder from './CompletedOrder';
 
 const ViewOrders = () => {
     const classes = useStyle();
@@ -49,11 +52,20 @@ const ViewOrders = () => {
                             </Box>
                         </TabPanel>
                         <TabPanel value="2" className={classes.value1}>
-                            <Box pt={2}>
-                                <h4>Hello y all</h4>
+                            <Box>
+                                <NewOrders />
                             </Box>
                         </TabPanel>
-                        <TabPanel value="3" className={classes.value1}>Item Three</TabPanel>
+                        <TabPanel value="3" className={classes.value1}>
+                            <Box>
+                                <PendingOrder />
+                            </Box>
+                        </TabPanel>
+                        <TabPanel value="4" className={classes.value1}>
+                            <Box>
+                                <CompletedOrder />
+                            </Box>
+                        </TabPanel>
                     </TabContext>
                 </Box>
             </Box>

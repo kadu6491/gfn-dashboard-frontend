@@ -1,15 +1,9 @@
 import React from 'react'
 
-import TableHeadList from './TableHeadList'
 
 import { makeStyles, withStyles } from '@material-ui/core/styles';
-import { Button, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, Typography } from '@material-ui/core';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, Typography } from '@material-ui/core';
 
-import BorderColorIcon from '@material-ui/icons/BorderColor';
-import Completed from '../buttons/Completed';
-import Pending from '../buttons/Pending';
-import New from '../buttons/New';
-import Shipped from '../buttons/Shipped';
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -47,19 +41,8 @@ const useStyles = makeStyles({
 
 const MainTable = (props) => {
     const classes = useStyles();
-    const [page, setPage] = React.useState(0);
-    const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
-    const handleChangePage = (event, newPage) => {
-        setPage(newPage);
-    };
-    
-    const handleChangeRowsPerPage = (event) => {
-        setRowsPerPage(parseInt(event.target.value, 10));
-        setPage(0);
-    };
-
-    const emptyRows = rowsPerPage - Math.min(rowsPerPage, props.rows.length - page * rowsPerPage);
+    // const emptyRows = rowsPerPage - Math.min(rowsPerPage, props.rows.length - page * rowsPerPage);
 
     return (
         <div>
@@ -77,34 +60,12 @@ const MainTable = (props) => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {props.rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => (
-                            <StyledTableRow key={index}>
-                                <StyledTableCell component="th" scope="row">
-                                    {row.id}
-                                </StyledTableCell>
-                                <StyledTableCell>{row.customer}</StyledTableCell>
-                                <StyledTableCell>{row.date}</StyledTableCell>
-                                <StyledTableCell>{row.total}</StyledTableCell>
-                                <StyledTableCell>{row.method}</StyledTableCell>
-                                <StyledTableCell>
-                                    {row.status === "Completed" ? <Completed /> : null}
-                                    {row.status === "Pending" ? <Pending /> : null}
-                                    {row.status === "New" ? <New /> : null}
-                                    {row.status === "Shipped" ? <Shipped /> : null}
-                                </StyledTableCell>
-                                
-                                <StyledTableCell align="right">
-                                    <Button>
-                                        <BorderColorIcon style={{color: "white"}} />
-                                    </Button>
-                                </StyledTableCell>
-                            </StyledTableRow>     
-                        ))}
+                        {props.TableContent}
                     </TableBody>
                 </Table>
             </TableContainer>
 
-            {emptyRows < 0 && (
+            {props.emptyRows < 0 && (
                 <Typography align="center" style={{paddingTop: "30px"}}>
                     No Orders
                 </Typography>
@@ -113,10 +74,10 @@ const MainTable = (props) => {
                 rowsPerPageOptions={[10, 15, 25, 45]}
                 component="div"
                 count={props.rows.length}
-                rowsPerPage={rowsPerPage}
-                page={page}
-                onChangePage={handleChangePage}
-                onChangeRowsPerPage={handleChangeRowsPerPage}
+                rowsPerPage={props.rowsPerPage}
+                page={props.page}
+                onChangePage={props.handleChangePage}
+                onChangeRowsPerPage={props.handleChangeRowsPerPage}
             />
         </div>
     )

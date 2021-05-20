@@ -166,3 +166,28 @@
         // backgroundColor: "red",
         height: "40px",
     }
+
+
+    props.rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => (
+                            <StyledTableRow key={index}>
+                                <StyledTableCell component="th" scope="row">
+                                    {row.id}
+                                </StyledTableCell>
+                                <StyledTableCell>{row.customer}</StyledTableCell>
+                                <StyledTableCell>{row.date}</StyledTableCell>
+                                <StyledTableCell>{row.total}</StyledTableCell>
+                                <StyledTableCell>{row.method}</StyledTableCell>
+                                <StyledTableCell>
+                                    {row.status === "Completed" ? <Completed /> : null}
+                                    {row.status === "Pending" ? <Pending /> : null}
+                                    {row.status === "New" ? <New /> : null}
+                                    {row.status === "Shipped" ? <Shipped /> : null}
+                                </StyledTableCell>
+                                
+                                <StyledTableCell align="right">
+                                    <Button>
+                                        <BorderColorIcon style={{color: "white"}} />
+                                    </Button>
+                                </StyledTableCell>
+                            </StyledTableRow>     
+                        ))
