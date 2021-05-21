@@ -7,12 +7,12 @@ import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 
 import { useTheme} from '@material-ui/core/styles';
-import useStyles from './style'
+import useStyle from './styles'
 import DrawerList from './Drawer';
 
 
 const Nav = (props) => {
-    const classes = useStyles()
+    const classes = useStyle()
     const { window } = props;
     const theme = useTheme();
     const [mobileOpen, setMobileOpen] = React.useState(false);

@@ -27,7 +27,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 import {useHistory} from 'react-router-dom'
 
-import useStyles from './style'
+import useStyle from './styles'
 import { ChevronRightOutlined, ExpandMoreOutlined } from '@material-ui/icons';
 
 const ListItem = withStyles({
@@ -47,7 +47,7 @@ const ListItem = withStyles({
   })(MuiListItem);
 
 const DrawerList = (props) => {
-    const classes = useStyles()
+    const classes = useStyle()
     const [selectedIndex, setSelectedIndex] = React.useState(props.num);
     const [open, setOpen] = React.useState(false);
 

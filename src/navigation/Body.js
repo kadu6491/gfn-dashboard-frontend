@@ -4,13 +4,13 @@ import { CssBaseline, Hidden} from '@material-ui/core'
 
 import api from '../api'
 
-import useStyles from './style'
+import useStyle from './styles'
 import Header from '../components/home/Header';
 import Nav from './Nav';
 
 
 const DrawerNav = (props) => {
-    const classes = useStyles()
+    const classes = useStyle()
     let token = localStorage.getItem("token")
 
     const [firstname, setFirstName] = React.useState("")
