@@ -21,7 +21,7 @@ const useStyle = makeStyles((theme) => ({
           width: `calc(100% - ${drawerWidth}px)`,
           marginLeft: drawerWidth,
         },
-        backgroundColor: "#0c2233",
+        // backgroundColor: "#0c2233",
       },
     menuButton: {
         marginRight: theme.spacing(2),
@@ -60,13 +60,6 @@ const useStyle = makeStyles((theme) => ({
     },
     grow: {
         flexGrow: 1,
-      },
-    nestedxs: {
-        paddingLeft: theme.spacing(4),
-        "&:hover": {
-            backgroundColor: "#065471",
-            opacity: "0.7",
-        },
       },
 }));
 

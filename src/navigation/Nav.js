@@ -26,7 +26,7 @@ const Nav = (props) => {
     return (
         <>
             <Hidden mdUp implementation="css">
-                <AppBar position="fixed" className={classes.appBar}>
+                <AppBar position="fixed" className={classes.appBar} style={{backgroundColor: "#0c2233"}}>
                     <Toolbar>
                         <IconButton
                             color="inherit"

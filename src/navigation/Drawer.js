@@ -23,7 +23,7 @@ import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import AssignmentReturnedIcon from '@material-ui/icons/AssignmentReturned';
 import ViewStreamIcon from '@material-ui/icons/ViewStream';
 
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 
 import {useHistory} from 'react-router-dom'
 
@@ -46,8 +46,19 @@ const ListItem = withStyles({
     selected: {}
   })(MuiListItem);
 
+const useStyleClass = makeStyles((theme) => ({
+    nestedxs: {
+        paddingLeft: theme.spacing(4),
+        "&:hover": {
+            backgroundColor: "#065471",
+            opacity: "0.7",
+        },
+      },
+}))
+
 const DrawerList = (props) => {
     const classes = useStyle()
+    const dammClasses = useStyleClass()
     const [selectedIndex, setSelectedIndex] = React.useState(props.num);
     const [open, setOpen] = React.useState(false);
 
@@ -156,25 +167,25 @@ const DrawerList = (props) => {
                     </ListItem>
                     <Collapse in={open} timeout="auto" unmountOnExit >
                         <List disablePadding >
-                            <ListItem button component="a" className={classes.nestedxs} href="/orders">
+                            <ListItem button component="a" className={dammClasses.nestedxs} href="/orders">
                                 <ListItemIcon>
                                     <ViewStreamIcon style={{color: "white"}}/>
                                 </ListItemIcon>
                                 <ListItemText primary="All Orders" />
                             </ListItem>
-                            <ListItem button component="a" className={classes.nestedxs}>
+                            <ListItem button component="a" className={dammClasses.nestedxs}>
                                 <ListItemIcon>
                                     <CheckCircleIcon style={{color: "white"}}/>
                                 </ListItemIcon>
                                 <ListItemText primary="Completed" />
                             </ListItem>
-                            <ListItem button component="a" className={classes.nestedxs}>
+                            <ListItem button component="a" className={dammClasses.nestedxs}>
                                 <ListItemIcon>
                                     <CancelIcon style={{color: "white"}}/>
                                 </ListItemIcon>
                                 <ListItemText primary="Canceled" />
                             </ListItem>
-                            <ListItem button component="a" className={classes.nestedxs}>
+                            <ListItem button component="a" className={dammClasses.nestedxs}>
                                 <ListItemIcon>
                                     <AssignmentReturnedIcon style={{color: "white"}}/>
                                 </ListItemIcon>
